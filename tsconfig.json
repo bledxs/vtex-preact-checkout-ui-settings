@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "lib": ["dom", "esnext"],
+    "types": ["webpack", "jquery"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
