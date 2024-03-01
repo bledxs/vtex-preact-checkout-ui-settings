@@ -3,9 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const outputDir = './checkout-ui-custom'
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const webpack = require('webpack')
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
   entry: ['./src/index.tsx', './src/index.scss'],
@@ -19,7 +19,17 @@ module.exports = {
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
+      '@': path.resolve(__dirname, 'src'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@helpers': path.resolve(__dirname, 'src/helpers'),
     },
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: './tsconfig.json',
+        baseUrl: './src',
+        extensions: ['.ts', '.js', '.tsx'],
+      }),
+    ],
   },
   module: {
     rules: [
@@ -63,7 +73,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'checkout6-custom.css',
     }),
-    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     minimize: true,

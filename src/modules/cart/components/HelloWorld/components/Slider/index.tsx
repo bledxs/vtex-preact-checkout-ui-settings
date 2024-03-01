@@ -24,8 +24,8 @@ const Slider = ({ images }: SliderProps) => {
         &#8249;
       </button>
       {images.map((image, index) => (
-        <div className="sliderContent">
-          {visibleImage === index && <img className="sliderImage" key={index} src={image} alt={index.toString()} />}
+        <div key={image} className="sliderContent">
+          {visibleImage === index && <img className="sliderImage" src={image} alt={index.toString()} />}
         </div>
       ))}
       <button onClick={handleNextImage} className="sliderArrows sliderArrowRight">

@@ -1,6 +1,7 @@
-import { h, FunctionComponent } from 'preact'
-import useOrderForm from '../../../utils/useOrderForm'
-import Slider from './Slider'
+import { FunctionComponent, h } from 'preact'
+
+import Slider from './components/Slider'
+import useOrderForm from '@/utils/useOrderForm'
 
 const HelloWorld: FunctionComponent = () => {
   const { orderForm, clientProfileData } = useOrderForm()
@@ -22,6 +23,21 @@ const HelloWorld: FunctionComponent = () => {
 
       <p>
         Total products in cart: <b>{orderForm?.items?.length}</b>
+      </p>
+      <span>
+        <b>Slider component:</b>
+      </span>
+      <p>
+        This component is using{' '}
+        <strong
+          style={{
+            fontSize: '1.2em',
+          }}
+        >
+          Preact
+        </strong>{' '}
+        and is being injected into the cart page. It has a slider with some images and it is being rendered using the
+        useOrderForm hook to get the orderForm and clientProfileData.
       </p>
       <Slider images={images} />
     </div>
