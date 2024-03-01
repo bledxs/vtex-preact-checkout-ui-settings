@@ -14,7 +14,8 @@
     "build:dev": "webpack --mode=development --config ./webpack.config.js",
     "dev:link": "concurrently \"yarn dev\" \"vtex link\"",
     "lint": "eslint --cache --ext js,jsx,ts,tsx .",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,scss}\""
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,scss}\"",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
